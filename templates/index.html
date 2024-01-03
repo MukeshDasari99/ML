@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Prediction</title>
+</head>
+<body style="background-color:black;">
+    <h1 style="color:aqua;text-align:center">House Price Prediction</h1>
+    <div style="text-align: center;">
+        <form method="POST">
+            <label style="color:orange;">Bed Rooms : </label><input type="range" name="bedrooms" min="1" max="5" step="1" required><br><br>
+            <label style="color:white;">Bath Rooms : </label><input type="range" name="bathrooms" min="1" max="7" step="1" required><br><br>
+            <label style="color:green;">SFT : </label><input type="range" name="Sft" min="1000" max="10000" step="50" required><br><br>
+            <label >Location : </label>
+            <label style="color: brown;">Location : </label>
+            <select name="Location">
+                {% for i in Location %}
+                <option value="{{Location[i]}}">{{i}}</option>
+                {% endfor %}
+            </select><br><br>
+
+            <label style="color: yellow;">Status : </label>
+            <select name="Status">
+                {% for i in Status %}
+                <option value="{{Status[i]}}">{{i}}</option>
+                {% endfor %}
+            </select><br><br>
+
+            <label style="color: red;">Facing : </label>
+            <select name="Facing">
+                {% for i in Facing %}
+                <option value="{{Facing[i]}}">{{i}}</option>
+                {% endfor %}
+            </select><br><br>
+
+            <label style="color: blue;">Type : </label>
+            <select name="Type">
+                {% for i in Type %}
+                <option value="{{Type[i]}}">{{i}}</option>
+                {% endfor %}
+            </select><br><br>
+            <button style="background-color: gold;"><b>Submit</b></button>
+        </form>
+        <br><br>
+        {% if prediction is defined %}
+        <div style="text-align:center;">
+            <label style="color: white;">Prediction Price is :{{prediction}}</label>
+        </div>
+        {% endif %}
+    </div>
+</body>
+</html>
